@@ -1,0 +1,11 @@
+
+result = ''
+maxLen = 0
+
+for x in range(5):
+    current = input("Give String: ");
+    if len(current) >= maxLen:
+        maxLen = len(current)
+        result = current
+    
+print("Longest String is: " + result)
