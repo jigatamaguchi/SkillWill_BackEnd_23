@@ -1,0 +1,23 @@
+class Person:
+    def __init__(self, name, surname, age):
+        self.name = name
+        self.surname = surname
+        self.age = age
+
+class AttributeFormatterMixin:
+    def format_attributes(self):
+        attributes = vars(self)
+        formatted_attributes = [f"{key}: {value}" for key, value in attributes.items()]
+        return ", ".join(formatted_attributes)
+
+class Student(Person, AttributeFormatterMixin):
+    def __init__(self, name, surname, age, university):
+        super().__init__(name, surname, age)
+        self.university = university
+
+
+student = Student("John", "Doe", 25, "Example University")
+
+
+formatted_attributes = student.format_attributes()
+print(formatted_attributes)
