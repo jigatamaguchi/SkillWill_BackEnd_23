@@ -1,0 +1,4 @@
+SELECT first_name, age FROM Customers;
+INSERT INTO Customers(customer_id, first_name, last_name, age, country) VALUES(6, 'Goga', 'Faliani', 23, 'GEO');
+UPDATE Customers Set last_name = 'Paliani' WHERE last_name = 'Faliani'; 
+DELETE FROM Customers WHERE customer_id = 6;
