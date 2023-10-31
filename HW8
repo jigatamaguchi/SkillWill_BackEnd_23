@@ -1,0 +1,75 @@
+
+class Mixin:
+    def __init__(self):
+        self._grades = {}
+
+    def add_grade(self, subject, grade):
+        if 0 <= grade <= 100:
+            self._grades[subject] = grade
+        else:
+            print(f"Invalid grade {grade}. Grades must be between 0 and 100.")
+
+    @property
+    def average_grade(self):
+        if not self._grades:
+            return 0
+        total_grades = sum(self._grades.values())
+        return total_grades / len(self._grades)
+
+
+class Student():
+    def __init__(self, student_id, name):
+        self.id = student_id
+        self.name = name
+        self._grades = {}
+       
+    @property
+    def student_id(self):
+        return self.student_id
+
+    
+    def add_grade(self, subject, grade):
+        if 0 <= grade <= 100:
+            self._grades[subject] = grade
+        else:
+            print("Invalid grade. Grade must be between 0 and 100")
+        
+    @property
+    def average_grade(self):
+        if not self._grades:
+            return 0
+        total_grades = sum(self._grades.values())
+        return total_grades / len(self._grades)
+    
+    def display_details(self):
+        print(f"student id is {self.id}")
+        print(f"student name is {self.name}")
+        print(f"student average grade is {self.average_grade:.2f}")
+        
+
+class Student_Management_System():
+    def __init__(self):
+        self._students = {}
+        
+    def add_student_details(self, student_id, name):
+        if student_id not in self.students:
+            student = Student(student_id, name)
+            self._students[student_id] = student
+        else:
+            pritn("Student is already in system")
+            
+    def show_student_details(self, student_id):
+        student = self._students[student_id]
+        if student:
+            student.display_details()
+        else:
+            print("student not found")
+
+    def show_student_average_grade(self, student_id):
+        student = self._students.get(student_id)
+        if student:
+            average = student.average_grade
+            print(f"average grade of student with id: {student_id} is {average:.2f}")
+        else:
+            print("student not found")
+            
