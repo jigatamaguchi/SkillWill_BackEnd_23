@@ -1,0 +1,13 @@
+CREATE TABLE MyTable (
+    ID INT PRIMARY KEY IDENTITY(1,1),
+    Value VARCHAR(255)
+);
+
+INSERT INTO MyTable (Value) VALUES ('Item 1');
+INSERT INTO MyTable (Value) VALUES ('Item 2');
+
+SELECT * FROM MyTable WHERE Value = 'Item 1';
+
+CREATE INDEX IX_Value ON MyTable (Value);
+
+SELECT * FROM MyTable WHERE Value = 'Item 1';
